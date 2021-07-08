@@ -62,5 +62,12 @@ public final class Constants {
     public static final int ENCODER_ONE_LIMIT = 10;
     public static final int ENCODER_TWO_LIMIT = 10;
 
+    public static final int ENCODER_ONE_SOURCEA = 1;
+    public static final int ENCODER_ONE_SOURCEB = 2;
+    public static final int ENCODER_TWO_SOURCEA = 3;
+    public static final int ENCODER_TWO_SOURCEB = 4;
+    //change all of these numbers
+
+
     public static final int AUTON_BUTTON = 22;
 }

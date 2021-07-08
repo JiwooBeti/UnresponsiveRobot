@@ -123,8 +123,8 @@ public class RobotContainer {
     limitSwitch = new DigitalInput(Constants.ELEVATOR_LIMIT_SWITCH);
 
     //fix these encoders 
-    encoderOne = new Encoder(sourceA, sourceB);
-    encoderTwo = new Encoder(sourceA, sourceB);
+    encoderOne = new Encoder(Constants.ENCODER_ONE_SOURCEA, Constants.ENCODER_ONE_SOURCEB);
+    encoderTwo = new Encoder(Constants.ENCODER_TWO_SOURCEA, Constants.ENCODER_TWO_SOURCEB);
     elevator = new Elevator(elevatorLeft, elevatorRight, limitSwitch, encoderOne, encoderTwo);
 
 
