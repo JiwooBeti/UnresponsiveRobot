@@ -29,7 +29,7 @@ public class MoveIntake extends CommandBase {
 
         //if button's not pressed, return true
         if(speed > 0) {
-            return !Robot.m_robotContainer.getJoyStick().getRawButtonPressed(Constants.INTAKE_IN);
+            return !Robot.m_robotContainer.getJoyStick().getRawButtonPressed(Constants.INTAKE_BUTTON);
         } return !Robot.m_robotContainer.getJoyStick().getRawButtonPressed(Constants.INTAKE_OUT);
     }
 

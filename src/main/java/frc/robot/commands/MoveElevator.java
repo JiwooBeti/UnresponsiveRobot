@@ -35,7 +35,7 @@ public class MoveElevator extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        if(Robot.m_robotContainer.getJoyStick().getRawButtonPressed(Constants.ELEVATOR_UP) || Robot.m_robotContainer.getJoyStick().getRawButtonPressed(Constants.ELEVATOR_DOWN)) {
+        if(Robot.m_robotContainer.getJoyStick().getRawButtonPressed(Constants.ELEVATOR_UP_BUTTON) || Robot.m_robotContainer.getJoyStick().getRawButtonPressed(Constants.ELEVATOR_DOWN_BUTTON)) {
             return false;
         } return true;
     }

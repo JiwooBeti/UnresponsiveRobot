@@ -58,16 +58,19 @@ public class RobotContainer {
   private DriveTrain driveTrain;
   private Joystick joy;
   
-  private Button intakeIn, intakeOut;
+  private Button intakeButton;
   private SpeedController intakeSpeedController;
   private Intake intake;
 
-  private Button transportForward, transportBackward;
+  private Button transportButton;
+  //private Button transportBackward;
+  
   private SpeedController transportSpeedController;
   private Transport transport;
   private AnalogInput transportProximity;
 
-  private Button pulleyForward, pulleyBackward;
+  private Button pulleyButton;
+  //private Button pulleyBackward;
   private SpeedController pulleySpeedController;
   private Pulley pulley;
 
@@ -89,11 +92,10 @@ public class RobotContainer {
   public RobotContainer() {
 
     // Configure the button bindings
-    leftOne = new WPI_VictorSPX(Constants.DRIVETRAIN_LEFT_ONE);
-    leftTwo = new WPI_VictorSPX(Constants.DRIVETRAIN_LEFT_TWO);
-    rightOne = new WPI_VictorSPX(Constants.DRIVETRAIN_RIGHT_ONE);
-    rightTwo = new WPI_VictorSPX(Constants.DRIVETRAIN_RIGHT_TWO);
-    // ^^ may need to adjust values
+    leftOne = new WPI_VictorSPX(Constants.LEFT_TOP_MOTOR);
+    leftTwo = new WPI_VictorSPX(Constants.LEFT_BOTTOM_MOTOR);
+    rightOne = new WPI_VictorSPX(Constants.RIGHT_TOP_MOTOR);
+    rightTwo = new WPI_VictorSPX(Constants.RIGHT_BOTTOM_MOTOR);
 
     left = new SpeedControllerGroup(leftOne, leftTwo);
     right = new SpeedControllerGroup(rightOne, rightTwo);
@@ -104,22 +106,22 @@ public class RobotContainer {
     //above lines all drivetrain
 
 
-    intakeSpeedController = new WPI_VictorSPX(Constants.INTAKE_SPEED_CONTROLLER);
+    intakeSpeedController = new WPI_VictorSPX(Constants.INTAKE_MOTOR);
     intake = new Intake(intakeSpeedController);
 
-    transportSpeedController = new WPI_VictorSPX(Constants.TRANSPORT_SPEED_CONTROLLER);
+    transportSpeedController = new WPI_VictorSPX(Constants.TRANSPORT_MOTOR);
     transportProximity = new AnalogInput(Constants.TRANSPORT_PROXIMITY);
     transport = new Transport(transportSpeedController, transportProximity);
 
-    pulleySpeedController = new WPI_VictorSPX(Constants.PULLEY_SPEED_CONTROLLER);
+    pulleySpeedController = new WPI_VictorSPX(Constants.PULLEY_MOTOR);
     pulley = new Pulley(pulleySpeedController);
 
-    shooterLeft = new WPI_VictorSPX(Constants.SHOOTER_LEFT);
-    shooterRight = new WPI_VictorSPX(Constants.SHOOTER_RIGHT);
+    shooterLeft = new WPI_VictorSPX(Constants.SHOOTER_MOTOR_TOP);
+    shooterRight = new WPI_VictorSPX(Constants.SHOOTER_MOTOR_BOTTOM);
     shooter = new Shooter(shooterLeft, shooterRight);
 
-    elevatorLeft = new WPI_VictorSPX(Constants.ELEVATOR_LEFT);
-    elevatorRight = new WPI_VictorSPX(Constants.ELEVATOR_RIGHT);
+    elevatorLeft = new WPI_VictorSPX(Constants.ELEVATOR_LEFT_MOTOR);
+    elevatorRight = new WPI_VictorSPX(Constants.ELEVATOR_RIGHT_MOTOR);
     limitSwitch = new DigitalInput(Constants.ELEVATOR_LIMIT_SWITCH);
 
     //fix these encoders 
@@ -145,43 +147,44 @@ public class RobotContainer {
 
     joy = new Joystick(0);
 
-    intakeIn = new JoystickButton(joy, Constants.INTAKE_IN);
-    intakeOut = new JoystickButton(joy, Constants.INTAKE_OUT);
+    intakeButton = new JoystickButton(joy, Constants.INTAKE_BUTTON);
+    //intakeOut = new JoystickButton(joy, Constants.INTAKE_OUT);
 
-    intakeIn.whileHeld(new MoveIntake(Constants.INTAKE_IN_SPEED));
-    intakeOut.whileHeld(new MoveIntake(Constants.INTAKE_OUT_SPEED));
+    intakeButton.whileHeld(new MoveIntake(Constants.INTAKE_TELEOP_SPEED));
+    //intakeOut.whileHeld(new MoveIntake(Constants.INTAKE_OUT_SPEED));
 
-    transportForward = new JoystickButton(joy, Constants.TRANSPORT_FORWARD);
-    transportBackward = new JoystickButton(joy, Constants.TRANSPORT_BACKWARD);
+    transportButton = new JoystickButton(joy, Constants.TRANSPORT_BUTTON);
+    //transportBackward = new JoystickButton(joy, Constants.TRANSPORT_BACKWARD);
 
-    transportForward.whileHeld(new MoveTransport(Constants.TRANSPORT_FORWARD_SPEED));
-    transportBackward.whileHeld(new MoveTransport(Constants.TRANSPORT_BACKWARD_SPEED));
+    transportButton.whileHeld(new MoveTransport(Constants.TRANSPORT_TELEOP_SPEED));
+    //transportBackward.whileHeld(new MoveTransport(Constants.TRANSPORT_BACKWARD_SPEED));
     //or we could do - transport forward speed
 
-    pulleyForward = new JoystickButton(joy, Constants.PULLEY_FORWARD);
-    pulleyBackward = new JoystickButton(joy, Constants.PULLEY_BACKWARD);
+    pulleyButton = new JoystickButton(joy, Constants.PULLEY_BUTTON);
+    //pulleyBackward = new JoystickButton(joy, Constants.PULLEY_BACKWARD);
 
-    pulleyForward.whileHeld(new MovePulley(Constants.PULLEY_FORWARD_SPEED));
-    pulleyBackward.whileHeld(new MovePulley(Constants.PULLEY_BACKWARD_SPEED));
+    pulleyButton.whileHeld(new MovePulley(Constants.PULLEY_TELEOP_SPEED));
+    //pulleyBackward.whileHeld(new MovePulley(Constants.PULLEY_BACKWARD_SPEED));
     //or - pulley forward speed
     /*gonna have to something with 
     transportProximity.getVoltage();
     */
 
-    shootButton = new JoystickButton(joy, Constants.SHOOT_BUTTON);
-    shootButton.whileHeld(new MoveShooter(Constants.SHOOTER_LEFT_SPEED, Constants.SHOOTER_RIGHT_SPEED));
+    shootButton = new JoystickButton(joy, Constants.SHOOTER_BUTTON);
+    //this value could be wrong
+    shootButton.whileHeld(new MoveShooter(Constants.SHOOTER_TELEOP_SPEED, Constants.SHOOTER_TELEOP_SPEED));
 
-    elevatorUp = new JoystickButton(joy, Constants.ELEVATOR_UP);
-    elevatorDown = new JoystickButton(joy, Constants.ELEVATOR_DOWN);
+    elevatorUp = new JoystickButton(joy, Constants.ELEVATOR_UP_BUTTON);
+    elevatorDown = new JoystickButton(joy, Constants.ELEVATOR_DOWN_BUTTON);
 
     //move up
-    elevatorUp.whileHeld(new MoveElevator(Constants.ELEVATOR_UP_SPEED, Constants.ELEVATOR_UP_SPEED));
+    elevatorUp.whileHeld(new MoveElevator(Constants.ELEVATOR_SPEED, Constants.ELEVATOR_SPEED));
     //move down
-    elevatorDown.whileHeld(new MoveElevator(Constants.ELEVATOR_DOWN_SPEED, Constants.ELEVATOR_DOWN_SPEED));
+    elevatorDown.whileHeld(new MoveElevator(-Constants.ELEVATOR_SPEED, -Constants.ELEVATOR_SPEED));
 
     //auton
     autonButton = new JoystickButton(joy, Constants.AUTON_BUTTON);
-    autonButton.whileHeld(new ShootAuto(Constants.PULLEY_FORWARD_SPEED, Constants.SHOOTER_LEFT_SPEED, Constants.SHOOTER_RIGHT_SPEED, Constants.TRANSPORT_FORWARD_SPEED));
+    autonButton.whileHeld(new ShootAuto(Constants.PULLEY_TELEOP_SPEED, Constants.SHOOTER_TELEOP_SPEED, Constants.SHOOTER_TELEOP_SPEED, Constants.TRANSPORT_TELEOP_SPEED));
 
   }
 
