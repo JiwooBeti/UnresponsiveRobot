@@ -111,6 +111,7 @@ public class RobotContainer {
 
     transportSpeedController = new WPI_VictorSPX(Constants.TRANSPORT_MOTOR);
     transportProximity = new AnalogInput(Constants.TRANSPORT_PROXIMITY);
+    //i havent actually used this yet
     transport = new Transport(transportSpeedController, transportProximity);
 
     pulleySpeedController = new WPI_VictorSPX(Constants.PULLEY_MOTOR);
@@ -171,7 +172,6 @@ public class RobotContainer {
     */
 
     shootButton = new JoystickButton(joy, Constants.SHOOTER_BUTTON);
-    //this value could be wrong
     shootButton.whileHeld(new MoveShooter(Constants.SHOOTER_TELEOP_SPEED, Constants.SHOOTER_TELEOP_SPEED));
 
     elevatorUp = new JoystickButton(joy, Constants.ELEVATOR_UP_BUTTON);
@@ -180,7 +180,7 @@ public class RobotContainer {
     //move up
     elevatorUp.whileHeld(new MoveElevator(Constants.ELEVATOR_SPEED, Constants.ELEVATOR_SPEED));
     //move down
-    elevatorDown.whileHeld(new MoveElevator(-Constants.ELEVATOR_SPEED, -Constants.ELEVATOR_SPEED));
+    elevatorDown.whileHeld(new MoveElevator(-1 * Constants.ELEVATOR_SPEED, -1 * Constants.ELEVATOR_SPEED));
 
     //auton
     autonButton = new JoystickButton(joy, Constants.AUTON_BUTTON);
