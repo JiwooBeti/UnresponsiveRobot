@@ -65,7 +65,9 @@ public final class Constants {
 
     //public static final int ELEVATOR_LEFT = 17;
     //public static final int ELEVATOR_RIGHT = 18;
+    
     public static final int ELEVATOR_LIMIT_SWITCH = 19;
+    //this value definitely needs to be changed
 
     //public static final int ELEVATOR_UP = 5;
     //public static final int ELEVATOR_DOWN = 3;
@@ -126,6 +128,6 @@ public final class Constants {
     public static final int ELEVATOR_UP_BUTTON = 5;
     public static final int ELEVATOR_DOWN_BUTTON = 3;
     //public static final int TILT_AUTO_BUTTON = 10;
-    public static final int REVERSE_INTAKE_BUTTON = 12;
+    //public static final int REVERSE_INTAKE_BUTTON = 12;
 
 }
