@@ -66,7 +66,7 @@ public final class Constants {
     //public static final int ELEVATOR_LEFT = 17;
     //public static final int ELEVATOR_RIGHT = 18;
     
-    public static final int ELEVATOR_LIMIT_SWITCH = 19;
+    public static final int ELEVATOR_LIMIT_SWITCH = 12;
     //this value definitely needs to be changed
 
     //public static final int ELEVATOR_UP = 5;
@@ -75,13 +75,13 @@ public final class Constants {
     //public static final double ELEVATOR_UP_SPEED = 0.5;
     //public static final double ELEVATOR_DOWN_SPEED = -0.5;
 
-    public static final int ENCODER_ONE_LIMIT = 10;
-    public static final int ENCODER_TWO_LIMIT = 10;
+    public static final double ENCODER_ONE_LIMIT = 6259.75;
+    public static final double ENCODER_TWO_LIMIT = -6264.0;
 
-    public static final int ENCODER_ONE_SOURCEA = 1;
-    public static final int ENCODER_ONE_SOURCEB = 2;
-    public static final int ENCODER_TWO_SOURCEA = 3;
-    public static final int ENCODER_TWO_SOURCEB = 4;
+    public static final int ENCODER_ONE_SOURCEA = 0;
+    public static final int ENCODER_ONE_SOURCEB = 1;
+    public static final int ENCODER_TWO_SOURCEA = 6;
+    public static final int ENCODER_TWO_SOURCEB = 7;
     //change all of these numbers
 
 

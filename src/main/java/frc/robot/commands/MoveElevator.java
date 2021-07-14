@@ -24,10 +24,13 @@ public class MoveElevator extends CommandBase {
         Robot.m_robotContainer.getElevator().moveElevator(leftSpeed, rightSpeed);
 
         if(Robot.m_robotContainer.getElevator().isLimitSwitchPressed() && Robot.m_robotContainer.getElevator().getLeftMotorSpeed() > 0) {
+           
             Robot.m_robotContainer.getElevator().stopElevator();
         } 
 
         if(Robot.m_robotContainer.getElevator().isEncoderLimitReached() && Robot.m_robotContainer.getElevator().getLeftMotorSpeed() < 0) {
+            //this checks both encoder limits
+
             Robot.m_robotContainer.getElevator().stopElevator();
         }
 
