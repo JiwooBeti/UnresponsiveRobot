@@ -55,7 +55,7 @@ public class RobotContainer {
   private SpeedController leftOne, leftTwo, rightOne, rightTwo;
   private SpeedControllerGroup left, right;
   private DifferentialDrive drive;
-  private DriveTrain driveTrain;
+  private static DriveTrain driveTrain;
   private Joystick joy;
   
   private Button intakeButton;
@@ -101,6 +101,7 @@ public class RobotContainer {
     right = new SpeedControllerGroup(rightOne, rightTwo);
 
     drive = new DifferentialDrive(left, right);
+    drive.setSafetyEnabled(false);
     driveTrain = new DriveTrain(left, right, drive);
     driveTrain.setDefaultCommand(new DriveWithJoystick());
     //above lines all drivetrain
@@ -110,7 +111,6 @@ public class RobotContainer {
     intake = new Intake(intakeSpeedController);
 
     transportSpeedController = new WPI_VictorSPX(Constants.TRANSPORT_MOTOR);
-    transportProximity = new AnalogInput(Constants.TRANSPORT_PROXIMITY);
     //i havent actually used this yet
     transport = new Transport(transportSpeedController, transportProximity);
 
@@ -200,7 +200,7 @@ public class RobotContainer {
     return m_autoCommand;
   }
 
-  public DriveTrain getDriveTrain() {
+  public static DriveTrain getDriveTrain() {
     return driveTrain;
   }
 
