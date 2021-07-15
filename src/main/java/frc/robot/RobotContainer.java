@@ -60,29 +60,29 @@ public class RobotContainer {
   
   private Button intakeButton;
   private SpeedController intakeSpeedController;
-  private Intake intake;
+  private static Intake intake;
 
   private Button transportButton;
   //private Button transportBackward;
   
   private SpeedController transportSpeedController;
-  private Transport transport;
+  private static Transport transport;
   private AnalogInput transportProximity;
 
   private Button pulleyButton;
   //private Button pulleyBackward;
   private SpeedController pulleySpeedController;
-  private Pulley pulley;
+  private static Pulley pulley;
 
   private Button shootButton;
   private SpeedController shooterLeft, shooterRight;
-  private Shooter shooter;
+  private static Shooter shooter;
 
 
   private SpeedController elevatorLeft, elevatorRight;
   private DigitalInput limitSwitch;
   private Encoder encoderOne, encoderTwo;
-  private Elevator elevator;
+  private static Elevator elevator;
   private Button elevatorUp, elevatorDown;
 
   private Button autonButton;
@@ -209,23 +209,23 @@ public class RobotContainer {
     return joy;
   }
 
-  public Intake getIntake() {
+  public static Intake getIntake() {
     return intake;
   }
 
-  public Transport getTransport() {
+  public static Transport getTransport() {
     return transport;
   }
 
-  public Pulley getPulley() {
+  public static Pulley getPulley() {
     return pulley;
   }
 
-  public Shooter getShooter() {
+  public static Shooter getShooter() {
     return shooter;
   }
 
-  public Elevator getElevator() {
+  public static Elevator getElevator() {
     return elevator;
   }
 

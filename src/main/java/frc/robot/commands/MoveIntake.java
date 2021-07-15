@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.Robot;
+import frc.robot.RobotContainer;
 
 public class MoveIntake extends CommandBase {
     //when a button is held move intake
@@ -15,25 +16,25 @@ public class MoveIntake extends CommandBase {
 
     @Override
     public void initialize() {
-        Robot.m_robotContainer.getIntake().moveIntake(speed);
+        RobotContainer.getIntake().moveIntake(speed);
         //i think you run the constructor
     }
 
     @Override
     public void execute() {
-        Robot.m_robotContainer.getIntake().moveIntake(speed);
+        RobotContainer.getIntake().moveIntake(speed);
     }
 
     @Override
     public boolean isFinished() {
 
         //if button's not pressed, return true
-        return !Robot.m_robotContainer.getJoyStick().getRawButtonPressed(Constants.INTAKE_BUTTON);
+        return !Robot.m_robotContainer.getJoyStick().getRawButton(Constants.INTAKE_BUTTON);
  
     }
 
     @Override
     public void end(boolean interrupted) {
-        Robot.m_robotContainer.getIntake().stopIntake();
+        RobotContainer.getIntake().stopIntake();
     }
 }

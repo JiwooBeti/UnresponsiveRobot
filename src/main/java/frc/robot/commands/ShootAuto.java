@@ -2,6 +2,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
+import frc.robot.RobotContainer;
 
 
 public class ShootAuto extends CommandBase {
@@ -20,15 +21,15 @@ public class ShootAuto extends CommandBase {
         }
 
         public void initialize() {
-            Robot.m_robotContainer.getPulley().movePulley(pulleySpeed);
-            Robot.m_robotContainer.getShooter().moveShooter(shooterLeftSpeed, shooterRightSpeed);
-            Robot.m_robotContainer.getTransport().moveTransport(transportSpeed);
+            RobotContainer.getPulley().movePulley(pulleySpeed);
+            RobotContainer.getShooter().moveShooter(shooterLeftSpeed, shooterRightSpeed);
+            RobotContainer.getTransport().moveTransport(transportSpeed);
         }
 
         public void execute() {
-            Robot.m_robotContainer.getPulley().movePulley(pulleySpeed);
-            Robot.m_robotContainer.getShooter().moveShooter(shooterLeftSpeed, shooterRightSpeed);
-            Robot.m_robotContainer.getTransport().moveTransport(transportSpeed);
+            RobotContainer.getPulley().movePulley(pulleySpeed);
+            RobotContainer.getShooter().moveShooter(shooterLeftSpeed, shooterRightSpeed);
+            RobotContainer.getTransport().moveTransport(transportSpeed);
 
         }
 
@@ -41,9 +42,9 @@ public class ShootAuto extends CommandBase {
         }
 
         public void end() {
-            Robot.m_robotContainer.getPulley().stopPulley();
-            Robot.m_robotContainer.getShooter().stopShooter();
-            Robot.m_robotContainer.getTransport().stopTransport();
+            RobotContainer.getPulley().stopPulley();
+            RobotContainer.getShooter().stopShooter();
+            RobotContainer.getTransport().stopTransport();
         }
 
         
