@@ -26,7 +26,7 @@ public class MoveShooter extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        return Robot.m_robotContainer.getJoyStick().getRawButton(Constants.SHOOTER_BUTTON);
+        return RobotContainer.getJoyStick().getRawButton(Constants.SHOOTER_BUTTON);
         
     }
 

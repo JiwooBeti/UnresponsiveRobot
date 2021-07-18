@@ -12,12 +12,12 @@ public class DriveWithJoystick extends CommandBase {
     @Override
     public void initialize() {
 
-        RobotContainer.getDriveTrain().takeJoystickInputs(Robot.m_robotContainer.getJoyStick());
+        RobotContainer.getDriveTrain().takeJoystickInputs(RobotContainer.getJoyStick());
     }
 
     @Override
     public void execute() {
-        RobotContainer.getDriveTrain().takeJoystickInputs(Robot.m_robotContainer.getJoyStick());
+        RobotContainer.getDriveTrain().takeJoystickInputs(RobotContainer.getJoyStick());
         
     }
 

@@ -56,7 +56,7 @@ public class RobotContainer {
   private SpeedControllerGroup left, right;
   private DifferentialDrive drive;
   private static DriveTrain driveTrain;
-  private Joystick joy;
+  private static Joystick joy;
   
   private Button intakeButton;
   private SpeedController intakeSpeedController;
@@ -205,7 +205,7 @@ public class RobotContainer {
   }
 
   //use this for DriveWithJoystick
-  public Joystick getJoyStick() {
+  public static Joystick getJoyStick() {
     return joy;
   }
 
