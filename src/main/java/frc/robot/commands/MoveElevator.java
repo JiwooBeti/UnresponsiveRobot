@@ -23,25 +23,35 @@ public class MoveElevator extends CommandBase {
     @Override
     public void execute() {
         RobotContainer.getElevator().moveElevator(leftSpeed, rightSpeed);
+        System.out.println("hello there");
 
-        if(RobotContainer.getElevator().isLimitSwitchPressed() && RobotContainer.getElevator().getLeftMotorSpeed() > 0) {
-           
-            RobotContainer.getElevator().stopElevator();
-        } 
-
-        if(RobotContainer.getElevator().isEncoderLimitReached() && RobotContainer.getElevator().getLeftMotorSpeed() < 0) {
-            //this checks both encoder limits
-
-            RobotContainer.getElevator().stopElevator();
+        if(leftSpeed < 0 && rightSpeed < 0) {
+            if(RobotContainer.getElevator().isLimitSwitchAPressed() || RobotContainer.getElevator().isLimitSwitchBPressed()) {
+            
+                RobotContainer.getElevator().stopElevator();
+            } 
         }
+
+        if(leftSpeed > 0 && rightSpeed > 0) {
+                        
+
+            if(RobotContainer.getElevator().isEncoderLimitReached()) {
+                //this checks both encoder limits
+    
+                RobotContainer.getElevator().stopElevator();
+            }
+        }
+
 
     }
 
     @Override
     public boolean isFinished() {
         if(RobotContainer.getJoyStick().getRawButton(Constants.ELEVATOR_UP_BUTTON) || RobotContainer.getJoyStick().getRawButton(Constants.ELEVATOR_DOWN_BUTTON)) {
-            return false;
-        } return true;
+           return false;
+        } else {
+            return true;
+        }
     }
 
     @Override

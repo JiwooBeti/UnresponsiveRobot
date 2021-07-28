@@ -74,13 +74,13 @@ public class RobotContainer {
   private SpeedController pulleySpeedController;
   private static Pulley pulley;
 
-  private Button shootButton;
+  private Button shootButton, shooterTeleopButton;
   private SpeedController shooterLeft, shooterRight;
   private static Shooter shooter;
 
 
   private SpeedController elevatorLeft, elevatorRight;
-  private DigitalInput limitSwitch;
+  private DigitalInput limitSwitchA, limitSwitchB;
   private Encoder encoderOne, encoderTwo;
   private static Elevator elevator;
   private Button elevatorUp, elevatorDown;
@@ -123,12 +123,12 @@ public class RobotContainer {
 
     elevatorLeft = new WPI_VictorSPX(Constants.ELEVATOR_LEFT_MOTOR);
     elevatorRight = new WPI_VictorSPX(Constants.ELEVATOR_RIGHT_MOTOR);
-    limitSwitch = new DigitalInput(Constants.ELEVATOR_LIMIT_SWITCH);
-
+    limitSwitchA = new DigitalInput(Constants.ELEVATOR_LIMIT_SWITCHA);
+    limitSwitchB = new DigitalInput(Constants.ELEVATOR_LIMIT_SWITCHB);
     //fix these encoders 
     encoderOne = new Encoder(Constants.ENCODER_ONE_SOURCEA, Constants.ENCODER_ONE_SOURCEB);
     encoderTwo = new Encoder(Constants.ENCODER_TWO_SOURCEA, Constants.ENCODER_TWO_SOURCEB);
-    elevator = new Elevator(elevatorLeft, elevatorRight, limitSwitch, encoderOne, encoderTwo);
+    elevator = new Elevator(elevatorLeft, elevatorRight, limitSwitchA, limitSwitchB, encoderOne, encoderTwo);
 
 
 
@@ -173,6 +173,10 @@ public class RobotContainer {
 
     shootButton = new JoystickButton(joy, Constants.SHOOTER_BUTTON);
     shootButton.whileHeld(new MoveShooter(Constants.SHOOTER_TELEOP_SPEED, Constants.SHOOTER_TELEOP_SPEED));
+
+    shooterTeleopButton = new JoystickButton(joy, Constants.SHOOTER_TELEOP);
+    shooterTeleopButton.whileHeld(new MoveShooter(Constants.SHOOTER_TELEOP_SPEED, Constants.SHOOTER_TELEOP_SPEED));
+
 
     elevatorUp = new JoystickButton(joy, Constants.ELEVATOR_UP_BUTTON);
     elevatorDown = new JoystickButton(joy, Constants.ELEVATOR_DOWN_BUTTON);

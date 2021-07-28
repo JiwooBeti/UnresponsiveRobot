@@ -8,24 +8,28 @@ import frc.robot.Constants;
 
 public class Elevator extends SubsystemBase {
     private SpeedController elevatorLeft, elevatorRight;
-    private DigitalInput limitSwitch;
+    private DigitalInput limitSwitchA, limitSwitchB;
     private Encoder encoderOne, encoderTwo;
     private double leftSpeed, rightSpeed;
 
-    public Elevator(SpeedController elevatorLeft, SpeedController elevatorRight, DigitalInput limitSwitch, Encoder encoderOne, Encoder encoderTwo) {
+    public Elevator(SpeedController elevatorLeft, SpeedController elevatorRight, DigitalInput limitSwitchA, DigitalInput limitSwitchB, Encoder encoderOne, Encoder encoderTwo) {
         this.elevatorLeft = elevatorLeft;
         this.elevatorRight = elevatorRight;
-        this.limitSwitch = limitSwitch;
+        this.limitSwitchA = limitSwitchA;
+        this.limitSwitchB = limitSwitchB;
         this.encoderOne = encoderOne;
         this.encoderTwo = encoderTwo;
     }
 
     public void moveElevator(double leftSpeed, double rightSpeed) {
-        elevatorLeft.set(leftSpeed);
-        elevatorRight.set(rightSpeed);
 
         this.leftSpeed = leftSpeed;
         this.rightSpeed = rightSpeed;
+
+        elevatorLeft.set(leftSpeed);
+        elevatorRight.set(rightSpeed);
+
+
     }
 
     public void stopElevator() {
@@ -33,12 +37,17 @@ public class Elevator extends SubsystemBase {
         elevatorRight.stopMotor();
     }
 
-    public boolean isLimitSwitchPressed() {
-        return limitSwitch.get();
+    public boolean isLimitSwitchAPressed() {
+        return !limitSwitchA.get();
     }
 
+    public boolean isLimitSwitchBPressed() {
+        return !limitSwitchB.get();
+    }
+
+
     public boolean isEncoderLimitReached() {
-        if(encoderOne.getDistance() > Constants.ENCODER_ONE_LIMIT || encoderTwo.getDistance() > Constants.ENCODER_TWO_LIMIT) {
+        if(encoderOne.getDistance() >= Constants.ENCODER_ONE_LIMIT || encoderTwo.getDistance() <= Constants.ENCODER_TWO_LIMIT) {
             return true;
         } return false;
     }

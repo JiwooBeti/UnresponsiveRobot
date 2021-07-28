@@ -66,7 +66,8 @@ public final class Constants {
     //public static final int ELEVATOR_LEFT = 17;
     //public static final int ELEVATOR_RIGHT = 18;
     
-    public static final int ELEVATOR_LIMIT_SWITCH = 12;
+    public static final int ELEVATOR_LIMIT_SWITCHA = 9;
+    public static final int ELEVATOR_LIMIT_SWITCHB = 8;
     //this value definitely needs to be changed
 
     //public static final int ELEVATOR_UP = 5;
@@ -122,6 +123,8 @@ public final class Constants {
     public static final int TRANSPORT_BUTTON = 7;
     public static final int PULLEY_BUTTON = 8;
     public static final int SHOOTER_BUTTON = 11;
+    //shooter and elevator not working
+    
     //public static final int TILT_BUTTON_UP = 6;
     //public static final int TILT_BUTTON_DOWN = 4;
     public static final int SHOOTER_TELEOP = 1;
