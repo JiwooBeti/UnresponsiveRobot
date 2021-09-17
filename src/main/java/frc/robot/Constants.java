@@ -18,63 +18,18 @@ package frc.robot;
  //add static final variables
 public final class Constants {
 
-    //the button numbers used are 2, 7, 8, 11
-    //the ones available are 1, 3, 4, 5, 6, 9, 10, 12
-    //aah do this again while using the right branch
+    //pathweaver stuff
+    public static final double MAX_VELOCITY = 1.6333;
+    public static final double MAX_ACCELERATION = 1.0611;
 
 
-    //gonna have to change these later
-    //public static final int DRIVETRAIN_LEFT_ONE = 0;
-    //public static final int DRIVETRAIN_LEFT_TWO = 1;
-    //public static final int DRIVETRAIN_RIGHT_ONE = 2;
-    //public static final int DRIVETRAIN_RIGHT_TWO = 3;
-
-    //public static final int INTAKE_SPEED_CONTROLLER = 4;
-    //public static final int INTAKE_IN = 2;
-    //this is correct^^
-    //public static final int INTAKE_OUT = 2;
-
-    //public static final double INTAKE_IN_SPEED = 0.5;
-    //public static final double INTAKE_OUT_SPEED = 0.5;
-
-    //public static final int TRANSPORT_SPEED_CONTROLLER = 7;
-    //public static final int TRANSPORT_FORWARD = 7;
-    //this is correct^^
-    //public static final int TRANSPORT_BACKWARD = 9;
-
-    //public static final double TRANSPORT_FORWARD_SPEED = 0.5;
-    //public static final double TRANSPORT_BACKWARD_SPEED = 0.5;
     public static final int TRANSPORT_PROXIMITY = 10;
 
-    //public static final int PULLEY_SPEED_CONTROLLER = 11;
-    //public static final int PULLEY_FORWARD = 8;
-    //this is correct^^
-    //public static final int PULLEY_BACKWARD = 13;
 
-    //public static final double PULLEY_FORWARD_SPEED = 0.5;
-    //public static final double PULLEY_BACKWARD_SPEED = 0.5;
-
-    //public static final int SHOOTER_LEFT = 14;
-    //public static final int SHOOTER_RIGHT = 15;
-    //public static final int SHOOT_BUTTON = 11;
-    //this is correct^^, either it's 11 or 1
-
-    //public static final double SHOOTER_LEFT_SPEED = 0.5;
-    //public static final double SHOOTER_RIGHT_SPEED = 0.5;
-    //should be opposites
-
-    //public static final int ELEVATOR_LEFT = 17;
-    //public static final int ELEVATOR_RIGHT = 18;
     
     public static final int ELEVATOR_LIMIT_SWITCHA = 9;
     public static final int ELEVATOR_LIMIT_SWITCHB = 8;
-    //this value definitely needs to be changed
 
-    //public static final int ELEVATOR_UP = 5;
-    //public static final int ELEVATOR_DOWN = 3;
-
-    //public static final double ELEVATOR_UP_SPEED = 0.5;
-    //public static final double ELEVATOR_DOWN_SPEED = -0.5;
 
     public static final double ENCODER_ONE_LIMIT = 6259.75;
     public static final double ENCODER_TWO_LIMIT = -6264.0;
@@ -83,7 +38,6 @@ public final class Constants {
     public static final int ENCODER_ONE_SOURCEB = 1;
     public static final int ENCODER_TWO_SOURCEA = 6;
     public static final int ENCODER_TWO_SOURCEB = 7;
-    //change all of these numbers
 
 
     public static final int AUTON_BUTTON = 4;
