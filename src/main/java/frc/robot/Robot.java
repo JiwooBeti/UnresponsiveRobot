@@ -27,7 +27,9 @@ public class Robot extends TimedRobot {
 
   public static RobotContainer m_robotContainer;
   //String trajectoryJSON = "paths/YourPath.wpilib.json";
-  String trajectoryJSON = "paths/Pt1.wpilib.json"; 
+  String trajectoryJSON = "paths/Pt1.wpilib.json";
+  String trajectoryJSON2 = "paths/Pt2.wpilib.json";
+
   Trajectory trajectory = new Trajectory();
 
   /**
@@ -47,10 +49,17 @@ public class Robot extends TimedRobot {
     try {
       Path trajectoryPath = Filesystem.getDeployDirectory().toPath().resolve(trajectoryJSON);
       trajectory = TrajectoryUtil.fromPathweaverJson(trajectoryPath);
-   } catch (IOException ex) {
+    } catch (IOException ex) {
       DriverStation.reportError("Unable to open trajectory: " + trajectoryJSON, ex.getStackTrace());
    }
 
+   //idk if this part is needed or not
+   /*try {
+      Path trajectoryPath2 = Filesystem.getDeployDirectory().toPath().resolve(trajectoryJSON2);
+      trajectory = TrajectoryUtil.fromPathweaverJson(trajectoryPath2);
+   } catch (IOException ex) {
+      DriverStation.reportError("Unable to open trajectory: " + trajectoryJSON2, ex.getStackTrace());
+   }*/
 
 
   }
