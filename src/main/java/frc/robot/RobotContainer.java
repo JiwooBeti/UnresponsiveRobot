@@ -56,7 +56,8 @@ public class RobotContainer {
   private SpeedControllerGroup left, right;
   private DifferentialDrive drive;
   private static DriveTrain driveTrain;
-  private static Joystick joy;
+  //private static Joystick joy;
+  private static XboxController brokenController;
   
   private Button intakeButton;
   private SpeedController intakeSpeedController;
@@ -146,22 +147,22 @@ public class RobotContainer {
     //where do the buttons go
     //reserved for joysticks
 
-    joy = new Joystick(0);
+    brokenController = new XboxController(0);    
 
-    intakeButton = new JoystickButton(joy, Constants.INTAKE_BUTTON);
+    intakeButton = new JoystickButton(brokenController, Constants.INTAKE_BUTTON);
     //intakeOut = new JoystickButton(joy, Constants.INTAKE_OUT);
 
     intakeButton.whileHeld(new MoveIntake(Constants.INTAKE_TELEOP_SPEED));
     //intakeOut.whileHeld(new MoveIntake(Constants.INTAKE_OUT_SPEED));
 
-    transportButton = new JoystickButton(joy, Constants.TRANSPORT_BUTTON);
+    transportButton = new JoystickButton(brokenController, Constants.TRANSPORT_BUTTON);
     //transportBackward = new JoystickButton(joy, Constants.TRANSPORT_BACKWARD);
 
     transportButton.whileHeld(new MoveTransport(Constants.TRANSPORT_TELEOP_SPEED));
     //transportBackward.whileHeld(new MoveTransport(Constants.TRANSPORT_BACKWARD_SPEED));
     //or we could do - transport forward speed
 
-    pulleyButton = new JoystickButton(joy, Constants.PULLEY_BUTTON);
+    pulleyButton = new JoystickButton(brokenController, Constants.PULLEY_BUTTON);
     //pulleyBackward = new JoystickButton(joy, Constants.PULLEY_BACKWARD);
 
     pulleyButton.whileHeld(new MovePulley(Constants.PULLEY_TELEOP_SPEED));
@@ -171,15 +172,15 @@ public class RobotContainer {
     transportProximity.getVoltage();
     */
 
-    shootButton = new JoystickButton(joy, Constants.SHOOTER_BUTTON);
+    shootButton = new JoystickButton(brokenController, Constants.SHOOTER_BUTTON);
     shootButton.whileHeld(new MoveShooter(Constants.SHOOTER_TELEOP_SPEED, Constants.SHOOTER_TELEOP_SPEED));
 
-    shooterTeleopButton = new JoystickButton(joy, Constants.SHOOTER_TELEOP);
+    shooterTeleopButton = new JoystickButton(brokenController, Constants.SHOOTER_TELEOP);
     shooterTeleopButton.whileHeld(new MoveShooter(Constants.SHOOTER_TELEOP_SPEED, Constants.SHOOTER_TELEOP_SPEED));
 
 
-    elevatorUp = new JoystickButton(joy, Constants.ELEVATOR_UP_BUTTON);
-    elevatorDown = new JoystickButton(joy, Constants.ELEVATOR_DOWN_BUTTON);
+    elevatorUp = new JoystickButton(brokenController, Constants.ELEVATOR_UP_BUTTON);
+    elevatorDown = new JoystickButton(brokenController, Constants.ELEVATOR_DOWN_BUTTON);
 
     //move up
     elevatorUp.whileHeld(new MoveElevator(Constants.ELEVATOR_SPEED, Constants.ELEVATOR_SPEED));
@@ -187,7 +188,7 @@ public class RobotContainer {
     elevatorDown.whileHeld(new MoveElevator(-1 * Constants.ELEVATOR_SPEED, -1 * Constants.ELEVATOR_SPEED));
 
     //auton
-    autonButton = new JoystickButton(joy, Constants.AUTON_BUTTON);
+    autonButton = new JoystickButton(brokenController, Constants.AUTON_BUTTON);
     autonButton.whileHeld(new ShootAuto(Constants.PULLEY_TELEOP_SPEED, Constants.SHOOTER_TELEOP_SPEED, Constants.SHOOTER_TELEOP_SPEED, Constants.TRANSPORT_TELEOP_SPEED));
 
   }
@@ -209,9 +210,10 @@ public class RobotContainer {
   }
 
   //use this for DriveWithJoystick
-  public static Joystick getJoyStick() {
-    return joy;
+  public static XboxController getXboxController() {
+    return brokenController;
   }
+  
 
   public static Intake getIntake() {
     return intake;

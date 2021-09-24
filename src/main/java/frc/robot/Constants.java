@@ -14,6 +14,16 @@ package frc.robot;
  */
 
 
+ //controller mapping
+ //  left joystick = drivetrain
+ //  x = shoot
+ //  rt = elevator up
+ //  lt = elevator down
+ //  intake = a
+ //  transport = b
+ //  pulley = y
+
+
 
  //add static final variables
 public final class Constants {

@@ -47,7 +47,7 @@ public class MoveElevator extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        if(RobotContainer.getJoyStick().getRawButton(Constants.ELEVATOR_UP_BUTTON) || RobotContainer.getJoyStick().getRawButton(Constants.ELEVATOR_DOWN_BUTTON)) {
+        if(RobotContainer.getXboxController().getRawButton(Constants.ELEVATOR_UP_BUTTON) || RobotContainer.getXboxController().getRawButton(Constants.ELEVATOR_DOWN_BUTTON)) {
            return false;
         } else {
             return true;

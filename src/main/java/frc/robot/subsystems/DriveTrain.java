@@ -1,8 +1,9 @@
 package frc.robot.subsystems;
 
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -20,8 +21,13 @@ public class DriveTrain  extends SubsystemBase {
        //initially setting things
    }
 
-   public void takeJoystickInputs(Joystick joy) {
+   /*public void takeJoystickInputs(Joystick joy) {
        drive.arcadeDrive(joy.getY(), joy.getZ());
+   }*/
+
+   public void takeXboxInputs(XboxController brokenController) {
+       drive.arcadeDrive(brokenController.getY(Hand.kLeft), brokenController.getX(Hand.kLeft));
+       //kleft means left joystick thingy
    }
 
    public void moveTankDrive(double leftSpeed, double rightSpeed) {

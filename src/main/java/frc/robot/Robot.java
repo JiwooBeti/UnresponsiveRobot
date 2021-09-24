@@ -47,7 +47,7 @@ public class Robot extends TimedRobot {
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
 
-    try {
+    /*try {
       Path trajectoryPath = Filesystem.getDeployDirectory().toPath().resolve(trajectoryJSON);
       trajectory = TrajectoryUtil.fromPathweaverJson(trajectoryPath);
     } catch (IOException ex) {
@@ -60,7 +60,7 @@ public class Robot extends TimedRobot {
       trajectory2 = TrajectoryUtil.fromPathweaverJson(trajectoryPath2);
     } catch (IOException ex) {
       DriverStation.reportError("Unable to open trajectory: " + trajectoryJSON2, ex.getStackTrace());
-  }
+  }*/
 
 
   }

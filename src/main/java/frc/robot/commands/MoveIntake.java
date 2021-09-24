@@ -29,7 +29,7 @@ public class MoveIntake extends CommandBase {
     public boolean isFinished() {
 
         //if button's not pressed, return true
-        return !RobotContainer.getJoyStick().getRawButton(Constants.INTAKE_BUTTON);
+        return !RobotContainer.getXboxController().getRawButton(Constants.INTAKE_BUTTON);
  
     }
 

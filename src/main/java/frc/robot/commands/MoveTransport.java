@@ -26,7 +26,7 @@ public class MoveTransport extends CommandBase {
     @Override
     public boolean isFinished() {
         //if(speed > 0) {
-            return !RobotContainer.getJoyStick().getRawButton(Constants.TRANSPORT_BUTTON);
+            return !RobotContainer.getXboxController().getRawButton(Constants.TRANSPORT_BUTTON);
         //} return !Robot.m_robotContainer.getJoyStick().getRawButtonPressed(Constants.TRANSPORT_BACKWARD);
     }
 
