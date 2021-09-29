@@ -117,6 +117,11 @@ public final class Constants {
     public static final int ELEVATOR_RIGHT_MOTOR = 2;
     //public static final int CLIMB_MANIPULATOR = 4;
 
+    public static final int PROXIMITY_ONE = 0;
+    public static final int PROXIMITY_TWO = 2;
+    public static final int PROXIMITY_THREE = 1;
+
+
 
     //----------------------buttons--------------------------------------
     public static final int INTAKE_BUTTON = 2;

@@ -87,6 +87,8 @@ public class RobotContainer {
 
   private Button autonButton;
 
+  private static AnalogInput proximityOne, proximityTwo, proximityThree;
+
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -111,8 +113,8 @@ public class RobotContainer {
     intake = new Intake(intakeSpeedController);
 
     transportSpeedController = new WPI_VictorSPX(Constants.TRANSPORT_MOTOR);
-    //i havent actually used this yet
-    transport = new Transport(transportSpeedController, transportProximity);
+    // i havent actually used this yet
+    transport = new Transport(transportSpeedController, proximityOne);
 
     pulleySpeedController = new WPI_VictorSPX(Constants.PULLEY_MOTOR);
     pulley = new Pulley(pulleySpeedController);
@@ -125,10 +127,14 @@ public class RobotContainer {
     elevatorRight = new WPI_VictorSPX(Constants.ELEVATOR_RIGHT_MOTOR);
     limitSwitchA = new DigitalInput(Constants.ELEVATOR_LIMIT_SWITCHA);
     limitSwitchB = new DigitalInput(Constants.ELEVATOR_LIMIT_SWITCHB);
-    //fix these encoders 
+    // fix these encoders
     encoderOne = new Encoder(Constants.ENCODER_ONE_SOURCEA, Constants.ENCODER_ONE_SOURCEB);
     encoderTwo = new Encoder(Constants.ENCODER_TWO_SOURCEA, Constants.ENCODER_TWO_SOURCEB);
     elevator = new Elevator(elevatorLeft, elevatorRight, limitSwitchA, limitSwitchB, encoderOne, encoderTwo);
+
+    proximityOne = new AnalogInput(Constants.PROXIMITY_ONE);
+    proximityTwo = new AnalogInput(Constants.PROXIMITY_TWO);
+    proximityThree = new AnalogInput(Constants.PROXIMITY_THREE);
 
 
 
@@ -157,7 +163,7 @@ public class RobotContainer {
     transportButton = new JoystickButton(joy, Constants.TRANSPORT_BUTTON);
     //transportBackward = new JoystickButton(joy, Constants.TRANSPORT_BACKWARD);
 
-    transportButton.whileHeld(new MoveTransport(Constants.TRANSPORT_TELEOP_SPEED));
+    transportButton.whileHeld(new MoveTransport(Constants.TRANSPORT_TELEOP_SPEED, proximityOne));
     //transportBackward.whileHeld(new MoveTransport(Constants.TRANSPORT_BACKWARD_SPEED));
     //or we could do - transport forward speed
 
@@ -231,6 +237,22 @@ public class RobotContainer {
 
   public static Elevator getElevator() {
     return elevator;
+  }
+
+  public static AnalogInput getProximityOne() {
+    return proximityOne;
+    //next to intake
+    //when the ball is close to the proximity sensor, run transport
+  }
+
+  public static AnalogInput getProximityTwo() {
+    return proximityTwo;
+    //next to transport
+  } 
+
+  public static AnalogInput getProximityThree() {
+    return proximityThree;
+    //next to pulley
   }
 
   

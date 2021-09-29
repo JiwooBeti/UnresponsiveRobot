@@ -1,5 +1,6 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.Robot;
@@ -8,9 +9,11 @@ import frc.robot.RobotContainer;
 public class MoveTransport extends CommandBase {
 
     private double speed;
+    private AnalogInput proximityOne;
 
-    public MoveTransport(double speed) {
+    public MoveTransport(double speed, AnalogInput proximityOne) {
         this.speed = speed;
+        this.proximityOne = proximityOne;
     }
 
     @Override

@@ -8,12 +8,12 @@ public class Transport extends SubsystemBase {
 
     //were gonna have to add some proximity sensor stuff
     private SpeedController transportSpeedController;
-    private AnalogInput transportProximity;
+    private AnalogInput proximityOne;
     //how would i use this tho
 
-    public Transport(SpeedController transportSpeedController, AnalogInput transportProximity) {
+    public Transport(SpeedController transportSpeedController, AnalogInput proximityOne) {
         this.transportSpeedController = transportSpeedController;
-        this.transportProximity = transportProximity;
+        this.proximityOne = proximityOne;
     }
 
     public void moveTransport(double speed) {

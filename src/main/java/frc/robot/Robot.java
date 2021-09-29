@@ -88,11 +88,48 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+
+    if(1/RobotContainer.getProximityOne().getVoltage() * 6.1111126 * 1/2.54 < 2) {
+      //under 3 inches
+      RobotContainer.getTransport().moveTransport(Constants.TRANSPORT_TELEOP_SPEED);
+    }
+
+    /*if(1/RobotContainer.getProximityTwo().getVoltage() * 6.1111126 * 1/2.54 < 3) {
+      RobotContainer.getTransport().moveTransport(Constants.TRANSPORT_TELEOP_SPEED);
+    } 
+
+    if(1/RobotContainer.getProximityThree().getVoltage() * 6.1111126 * 1/2.54 < 3) {
+      RobotContainer.getPulley().movePulley(Constants.PULLEY_TELEOP_SPEED);
+    }*/
+
   }
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    //if(RobotContainer.getIntake().)
+    /*if(RobotContainer.getIntake().inProximity()) {
+      RobotContainer.getIntake().moveIntake(Constants.INTAKE_TELEOP_SPEED);
+    }*/
+
+    if(1/RobotContainer.getProximityOne().getVoltage() * 6.1111126 * 1/2.54 < 2) {
+      RobotContainer.getTransport().moveTransport(Constants.TRANSPORT_TELEOP_SPEED);
+    } else {
+      RobotContainer.getTransport().stopTransport();
+    }
+
+    /*if(1/RobotContainer.getProximityTwo().getVoltage() * 6.1111126 * 1/2.54 < 3) {
+      RobotContainer.getTransport().moveTransport(Constants.TRANSPORT_TELEOP_SPEED);
+    } else {
+      RobotContainer.getTransport().stopTransport();
+    }
+
+    if(1/RobotContainer.getProximityThree().getVoltage() * 6.1111126 * 1/2.54 < 3) {
+      RobotContainer.getPulley().movePulley(Constants.PULLEY_TELEOP_SPEED);
+    } else {
+      RobotContainer.getPulley().stopPulley();
+    }*/    
+  }
 
   @Override
   public void testInit() {
