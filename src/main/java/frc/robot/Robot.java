@@ -112,7 +112,7 @@ public class Robot extends TimedRobot {
       RobotContainer.getIntake().moveIntake(Constants.INTAKE_TELEOP_SPEED);
     }*/
 
-    if(1/RobotContainer.getProximityOne().getVoltage() * 6.1111126 * 1/2.54 < 2) {
+    if(1/RobotContainer.getProximityOne().getVoltage() * 6.1111126 * 1/2.54 < 5) {
       RobotContainer.getTransport().moveTransport(Constants.TRANSPORT_TELEOP_SPEED);
     } else {
       RobotContainer.getTransport().stopTransport();
