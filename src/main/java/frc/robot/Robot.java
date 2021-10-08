@@ -89,7 +89,7 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
 
-    if(1/RobotContainer.getProximityOne().getVoltage() * 6.1111126 * 1/2.54 < 2) {
+    if(1/RobotContainer.getProximityOne().getVoltage() * 6.1111126 * 1/2.54 < 4) {
       //under 3 inches
       RobotContainer.getTransport().moveTransport(Constants.TRANSPORT_TELEOP_SPEED);
     }
@@ -112,7 +112,7 @@ public class Robot extends TimedRobot {
       RobotContainer.getIntake().moveIntake(Constants.INTAKE_TELEOP_SPEED);
     }*/
 
-    if(1/RobotContainer.getProximityOne().getVoltage() * 6.1111126 * 1/2.54 < 5) {
+    if(1/RobotContainer.getProximityOne().getVoltage() * 6.1111126 * 1/2.54 < 4) {
       RobotContainer.getTransport().moveTransport(Constants.TRANSPORT_TELEOP_SPEED);
     } else {
       RobotContainer.getTransport().stopTransport();
